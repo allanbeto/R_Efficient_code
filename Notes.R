@@ -9,7 +9,7 @@ install.packages("profvis")
 #setwd("~/R/Download_Files")
 
 url <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_2987/datasets/movies.csv"
-download.file(url, "movies.csv")
+# <>  download.file(url, "movies.csv")
 movies <- read.csv("movies.csv")
 
 
@@ -263,9 +263,6 @@ while (total < 10) {
 
 #No: it's a sequential algorithm. The ith value depends on the previous value.
 
-
-
-
 # ----------------------------------- Can this loop run in parallel (2)?
 
 play <- function(){
@@ -287,11 +284,6 @@ for (i in seq_along(results)) {
 
 # Yes, this is embarrassingly parallel. We can simulate the games in any order.
 
-
-
-
-
-
 # -----------------------------------Moving to parApply
 
 library("parallel")
@@ -300,6 +292,7 @@ library("parallel")
 # Do some work.
 # Stop the cluster using stopCluster().
 dd = matrix(rnorm(1000), ncol = 10)
+
 # Determine the number of available cores
 detectCores()
 
@@ -325,8 +318,6 @@ play <- function() {
   }
   no_of_rolls
 }
-
-
 
 # Create a cluster via makeCluster (2 cores)
 cl <- makeCluster(2)
